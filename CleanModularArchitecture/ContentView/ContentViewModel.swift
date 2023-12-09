@@ -20,12 +20,12 @@ final class ContentViewModel: ObservableObject {
         self.getUserUseCase = getUserUseCase
     }
     
-    @Published var user: UserEntity?
-    @Published var text = ""
+    @Published var fetchedUser: UserEntity?
+    @Published var searchText = ""
     @Published var error: Error? = .none
     
     func getUser() {
-        getUserUseCase.execute(username: text)
+        getUserUseCase.execute(username: searchText)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 switch completion {
@@ -35,7 +35,7 @@ final class ContentViewModel: ObservableObject {
                     self?.error = error
                 }
             } receiveValue: { [weak self] user in
-                self?.user = user
+                self?.fetchedUser = user
             }.store(in: &cancellable)
 
     }

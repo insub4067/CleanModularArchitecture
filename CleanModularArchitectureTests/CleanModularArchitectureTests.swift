@@ -66,6 +66,6 @@ final class ContentViewModelTests: XCTestCase {
         guard result == XCTWaiter.Result.timedOut else {
             return XCTFail("테스트 실패")
         }
-        XCTAssertEqual(sut.user?.login, mock.login)
+        XCTAssertEqual(sut.fetchedUser?.login, mock.login)
     }
 }

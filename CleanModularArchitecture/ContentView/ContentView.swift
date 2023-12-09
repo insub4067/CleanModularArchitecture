@@ -36,7 +36,7 @@ extension ContentView {
     
     @ViewBuilder func userInfoView() -> some View {
         HStack(spacing: 12) {
-            AsyncImage(url: URL(string: viewModel.user?.avatarUrl ?? "")) { image in
+            AsyncImage(url: URL(string: viewModel.fetchedUser?.avatarUrl ?? "")) { image in
                 image
                     .resizable()
             } placeholder: {
@@ -48,13 +48,13 @@ extension ContentView {
             .clipShape(Circle())
             
             VStack(alignment: .leading) {
-                Text(viewModel.user?.name ?? "Placeholder")
+                Text(viewModel.fetchedUser?.name ?? "Placeholder")
                     .font(.title3.bold())
                     .foregroundStyle(Color.black.opacity(0.9))
-                Text(viewModel.user?.login ?? "Placeholder")
+                Text(viewModel.fetchedUser?.login ?? "Placeholder")
                     .font(.caption)
                     .foregroundStyle(Color.gray.opacity(0.7))
-                Text(viewModel.user?.bio ?? "Placeholder")
+                Text(viewModel.fetchedUser?.bio ?? "Placeholder")
                     .font(.callout)
                     .foregroundStyle(Color.black.opacity(0.8))
             }
@@ -62,7 +62,7 @@ extension ContentView {
     }
     
     @ViewBuilder func usernameTextField() -> some View {
-        TextField("Type Github Username", text: $viewModel.text)
+        TextField("Type Github Username", text: $viewModel.searchText)
             .padding(.horizontal, 8)
             .padding(.vertical, 6)
             .background(Color.gray.opacity(0.1))
