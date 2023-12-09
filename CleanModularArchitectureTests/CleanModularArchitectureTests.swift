@@ -16,7 +16,7 @@ import XCTest
 final class ContentViewModelTests: XCTestCase {
 
     
-    func test_네트워크가실패한경우() {
+    func test_네트워크실패한경우() {
         
         // Given
         var repository = UserRepository()
@@ -39,7 +39,7 @@ final class ContentViewModelTests: XCTestCase {
         XCTAssertNotNil(sut.error)
     }
     
-    func test_네트워크가성공한경우() {
+    func test_네트워크성공한경우() {
         
         // Given
         let mock = UserEntity(
