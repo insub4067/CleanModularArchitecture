@@ -20,7 +20,8 @@ struct ContentView: View {
             getUserButton()
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity)
+        .frame(maxHeight: .infinity)
         .overlay(alignment: .bottom) {
             if let error = viewModel.error {
                 errorToastMessage(error)
@@ -84,6 +85,7 @@ extension ContentView {
     
     @ViewBuilder func errorToastMessage(_ error: Error) -> some View {
         Text(error.localizedDescription)
+            .font(.title3.bold())
             .foregroundStyle(Color.black.opacity(0.6))
             .padding()
             .background(Color.gray.opacity(0.1))
