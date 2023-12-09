@@ -9,5 +9,5 @@ import Combine
 
 public protocol UserRepositoriable {
     
-    func getUser(username: String) -> AnyPublisher<UserEntity, Error>
+    var getUser: (String) -> AnyPublisher<UserEntity, Error> { get set }
 }

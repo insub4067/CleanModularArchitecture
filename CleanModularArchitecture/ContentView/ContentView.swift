@@ -20,8 +20,19 @@ struct ContentView: View {
             userInfoView()
             usernameTextField()
             getUserButton()
-        }.padding()
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .bottom) {
+            if let error = viewModel.error {
+                errorToastMessage(error)
+            }
+        }
     }
+}
+
+// MARK: - SubViews
+extension ContentView {
     
     @ViewBuilder func userInfoView() -> some View {
         HStack(spacing: 12) {
@@ -71,6 +82,21 @@ struct ContentView: View {
                 .background(Color.blue)
                 .cornerRadius(10)
         })
+    }
+    
+    @ViewBuilder func errorToastMessage(_ error: Error) -> some View {
+        Text(error.localizedDescription)
+            .foregroundStyle(Color.black.opacity(0.6))
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(10)
+            .transition(.move(edge: .bottom))
+            .onAppear {
+                Task {
+                    try await Task.sleep(nanoseconds: 3_000_000_000)
+                    viewModel.error = .none
+                }
+            }
     }
 }
 

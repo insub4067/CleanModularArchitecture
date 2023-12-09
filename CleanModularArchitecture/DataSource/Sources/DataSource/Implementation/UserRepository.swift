@@ -10,13 +10,11 @@ import Domain
 import Foundation
 
 public struct UserRepository: UserRepositoriable {
-
+    
     public init() { }
     
-    private let baseurl = "https://api.github.com"
-    
-    public func getUser(username: String) -> AnyPublisher<UserEntity, Error> {
-        let url = URL(string: baseurl + "/users" + "/\(username)")!
+    public var getUser: (String) -> AnyPublisher<Domain.UserEntity, Error> = { username in
+        let url = URL(string: "https://api.github.com" + "/users" + "/\(username)")!
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: UserDTO.self, decoder: JSONDecoder())

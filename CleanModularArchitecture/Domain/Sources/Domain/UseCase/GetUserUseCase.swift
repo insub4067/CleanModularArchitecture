@@ -17,6 +17,6 @@ public struct GetUserUseCase {
     }
     
     public func execute(username: String) -> AnyPublisher<UserEntity, Error>  {
-        userRepository.getUser(username: username)
+        userRepository.getUser(username)
     }
 }
