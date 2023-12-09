@@ -14,7 +14,7 @@ struct ContentView: View {
     @StateObject var viewModel: ContentViewModel
     
     var body: some View {
-        VStack(spacing: 18) {
+        VStack(spacing: 12) {
             userInfoView()
             usernameTextField()
             getUserButton()
@@ -38,11 +38,11 @@ extension ContentView {
             AsyncImage(url: URL(string: viewModel.fetchedUser?.avatarUrl ?? "")) { image in
                 image
                     .resizable()
+                    .scaledToFill()
             } placeholder: {
                 Circle()
                     .foregroundStyle(Color.gray.opacity(0.1))
             }
-            .scaledToFill()
             .frame(width: 80, height: 80)
             .clipShape(Circle())
             
@@ -66,7 +66,7 @@ extension ContentView {
             .padding(.vertical, 6)
             .background(Color.gray.opacity(0.1))
             .cornerRadius(8)
-            .padding(/*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/)
+            .padding()
     }
     
     @ViewBuilder func getUserButton() -> some View {
@@ -76,8 +76,7 @@ extension ContentView {
             Text("Get User")
                 .font(.subheadline.bold())
                 .foregroundStyle(Color.white)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 12)
+                .padding(12)
                 .background(Color.blue)
                 .cornerRadius(10)
         })
