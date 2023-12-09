@@ -11,9 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ContentViewModel(
-        getUserUseCase: .init(userRepository: UserRepository())
-    )
+    @StateObject var viewModel: ContentViewModel
     
     var body: some View {
         VStack(spacing: 18) {
@@ -101,5 +99,8 @@ extension ContentView {
 }
 
 #Preview {
-    ContentView()
+    let repository = UserRepository()
+    let usecase = GetUserUseCase(userRepository: repository)
+    let viewModel = ContentViewModel(getUserUseCase: usecase)
+    return ContentView(viewModel: viewModel)
 }
