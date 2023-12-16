@@ -20,14 +20,16 @@ struct FailUserNetwork: UserRepositoriable {
 
 // 항상 Mock을 반환하는 Stub UserRepository
 struct MockUserNetwork: UserRepositoriable {
+    
+    static let mock = UserEntity(
+        login: "insub4067",
+        avatarUrl: "https://avatars.githubusercontent.com/u/85481204?v=4",
+        name: "insub",
+        bio: "iOS Developer"
+    )
+    
     var getUser: (String) -> AnyPublisher<Domain.UserEntity, Error> = { _ in
-        let mock = UserEntity(
-            login: "insub4067",
-            avatarUrl: "https://avatars.githubusercontent.com/u/85481204?v=4",
-            name: "insub",
-            bio: "iOS Developer"
-        )
-        return Just(mock)
+        Just(mock)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }

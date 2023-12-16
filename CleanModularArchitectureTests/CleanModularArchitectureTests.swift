@@ -36,7 +36,7 @@ final class ContentViewModelTestsWithStub: XCTestCase {
     func test_네트워크성공한경우() {
         
         // Given
-        var repository = MockUserNetwork()
+        let repository = MockUserNetwork()
         let usecase = GetUserUseCase(userRepository: repository)
         let sut = ContentViewModel(getUserUseCase: usecase)
         
@@ -49,7 +49,7 @@ final class ContentViewModelTestsWithStub: XCTestCase {
         guard result == XCTWaiter.Result.timedOut else {
             return XCTFail("테스트 실패")
         }
-        XCTAssertEqual(sut.fetchedUser?.login, "insub4067")
+        XCTAssertEqual(sut.fetchedUser?.login, MockUserNetwork.mock.login)
     }
 }
 
