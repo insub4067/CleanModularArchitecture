@@ -10,7 +10,7 @@ import Foundation
 
 @testable import Domain
 
-// 항상 실패는 반환하는 Fake UserRepository
+// 항상 실패는 반환하는 Stub UserRepository
 struct FailUserNetwork: UserRepositoriable {
     var getUser: (String) -> AnyPublisher<Domain.UserEntity, Error> = { _ in
         Fail(error: NSError(domain: "Fail", code: -1))
@@ -18,7 +18,7 @@ struct FailUserNetwork: UserRepositoriable {
     }
 }
 
-// 항상 Mock을 반환하는 Fake UserRepository
+// 항상 Mock을 반환하는 Stub UserRepository
 struct MockUserNetwork: UserRepositoriable {
     var getUser: (String) -> AnyPublisher<Domain.UserEntity, Error> = { _ in
         let mock = UserEntity(
