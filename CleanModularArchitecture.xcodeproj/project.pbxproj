@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB9C415E2B2D5C79007A12C1 /* UserNetworkableStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C415D2B2D5C79007A12C1 /* UserNetworkableStubs.swift */; };
 		FBAA8BDD2B2432F10063F10A /* CleanModularArchitectureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA8BDC2B2432F10063F10A /* CleanModularArchitectureApp.swift */; };
 		FBAA8BDF2B2432F10063F10A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA8BDE2B2432F10063F10A /* ContentView.swift */; };
 		FBAA8BE12B2432F20063F10A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAA8BE02B2432F20063F10A /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB9C415D2B2D5C79007A12C1 /* UserNetworkableStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkableStubs.swift; sourceTree = "<group>"; };
 		FBAA8BD92B2432F10063F10A /* CleanModularArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanModularArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAA8BDC2B2432F10063F10A /* CleanModularArchitectureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanModularArchitectureApp.swift; sourceTree = "<group>"; };
 		FBAA8BDE2B2432F10063F10A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				FBAA8BFB2B2444D10063F10A /* CleanModularArchitectureTests.swift */,
+				FB9C415D2B2D5C79007A12C1 /* UserNetworkableStubs.swift */,
 			);
 			path = CleanModularArchitectureTests;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBAA8BFC2B2444D10063F10A /* CleanModularArchitectureTests.swift in Sources */,
+				FB9C415E2B2D5C79007A12C1 /* UserNetworkableStubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
